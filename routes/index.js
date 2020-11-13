@@ -35,42 +35,17 @@ function handleDisconnect() {
 
 handleDisconnect();
 
-/* GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.render('../views/luxe/index', { title: 'Home' });
-// });
-// router.get('/login', function(req, res, next) {
-//   res.render('../views/luxe/login', { title: 'Login' });
-// });
-// router.get('/services', function(req, res, next) {
-//   res.render('../views/luxe/services', { title: 'Services' });
-// });
-// router.get('/blog', function(req, res, next) {
-//   res.render('../views/luxe/blog', { title: 'Blog' });
-// });
-// router.get('/contract', function(req, res, next) {
-//   res.render('../views/luxe/contract', { title: 'Contract' });
-// });
-// router.get('/hotel', function(req, res, next) {
-//   res.render('../views/luxe/hotel', { title: 'Hotel' });
-// });
-// router.get('/booking', function(req, res, next) {
-//   res.render('../views/luxe/booking', { title: 'Booking' });
-// });
-
-
-// chanwoong routing
 router.get('/', function(req, res, next) {
-  res.render('../views/chanwoong/index', { title: 'Home' });
+  res.render('../views/index', { title: 'Home' });
 });
 router.get('/login', function(req, res, next) {
-  res.render('../views/chanwoong/login', { title: 'Login' });
+  res.render('../views/login', { title: 'Login' });
 });
 router.get('/reservation', function(req, res, next) {
-  res.render('../views/chanwoong/reservation', { title: 'Reservation' });
+  res.render('../views/reservation', { title: 'Reservation' });
 });
 router.get('/room', function(req, res, next) {
-  res.render('../views/chanwoong/room', { title: 'Room' });
+  res.render('../views/room', { title: 'Room' });
 });
 
 router.post('/do_login',function (req,res){
@@ -82,17 +57,17 @@ router.post('/do_login',function (req,res){
     }
     if(result.length == 0){
       console.log("일치하는 아이디 없음");
-      res.render('../views/chanwoong/login', {title: 'Login'});
+      res.render('../views/login', {title: 'Login'});
     }
     else{
     for (var i = 0; i < result.length; i++) {
       if (result[i].login_pw == userpwd) {
         console.log("로그인 성공");
-        res.render('../views/chanwoong/index', {title: 'Home',cusname:result[i].eng_first_name});
+        res.render('../views/index', {title: 'Home',cusname:result[i].eng_first_name});
       }
       else {
         console.log("로그인 실패...");
-        res.render('../views/chanwoong/login', {title: 'Login'});
+        res.render('../views/login', {title: 'Login'});
         }
       }
     }
