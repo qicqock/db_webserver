@@ -6,7 +6,7 @@
 #### 1. mysql -h us-cdbr-east-02.cleardb.com -u b0d7db5a46255f -p
 #### 2. e0ba2ce1   (password입력)
 #### 3. 정상적으로 접속 됐으면 USE heroku_a9f9515c41ce864; (우리가 쓸 db)
----------------
+
 ### DB 정보 정리!
 #### Hostname : us-cdbr-east-02.cleardb.com
 #### port : 3306

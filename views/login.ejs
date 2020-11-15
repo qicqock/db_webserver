@@ -22,15 +22,14 @@
                         <div class="row">
                             <div class="col-md-9 col-lg-8 mx-auto">
                                 <h3 class="login-heading mb-4">Welcome back!</h3>
-
-                                <form method="post" action="/main">
+                                <form method="post" action="/main" >
                                     <div class="form-label-group">
                                         <input type="email" id="inputEmail" name="userid" class="form-control" placeholder="Email address" required autofocus>
                                         <label for="inputEmail">Email address</label>
                                     </div>
 
                                     <div class="form-label-group">
-                                        <input type="password" id="inputPassword" name='userpwd' class="form-control" placeholder="Password" required>
+                                        <input type="password" id="inputPassword" name="userpwd" class="form-control" placeholder="Password" required>
                                         <label for="inputPassword">Password</label>
                                     </div>
 
@@ -39,10 +38,10 @@
                                         <label class="custom-control-label crimson-font" for="customCheck1">Remember password</label>
                                     </div>
                                     <button class="btn btn-lg btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit" style="background-color: #903479; border-color: #903479; color: white">Sign in</button>
+                                    <button class="btn btn-lg btn-block btn-login text-uppercase font-weight-bold mb-2" onclick = "location.href='register'" style="background-color: #903479; border-color: #903479; color: white">Register</button>
                                     <div class="text-center">
                                         <a class="crimson-font" style="color: #903479;" href="#">Forgot password?</a></div>
                                 </form>
-
                             </div>
                         </div>
                     </div>
@@ -51,7 +50,6 @@
         </div>
     </div>
 </section>
-
 
 <script src="js/scripts.min.js"></script>
 <script src="js/main.min.js"></script>

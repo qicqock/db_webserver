@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/stylesheets/css2/styles-merged.css">
     <link rel="stylesheet" href="/stylesheets/css2/style.min.css">
     <link rel="stylesheet" href="/stylesheets/css2/custom.css">
+    <link rel="stylesheet" href="/stylesheets/css2/reservation_custom.css">
     <!--[if lt IE 9]>
     <script src="js/vendor/html5shiv.min.js"></script>
     <script src="js/vendor/respond.min.js"></script>
@@ -39,107 +40,108 @@
 <section class="probootstrap-section">
     <div class="container">
         <div class="row probootstrap-gutter40">
-            <div class="col-md-8">
-                <h2 class="mt0">Reservation Form</h2>
-                <form action="#" method="post" class="probootstrap-form">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="fname">First Name</label>
-                                <input type="text" class="form-control" id="fname" name="fname">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="lname">Last Name</label>
-                                <input type="text" class="form-control" id="lname" name="lname">
+            <h2 class="mt0 text-center">날짜,인원 선택</h2>
+            <hr style="width: 100%; background-color: #903479; height: 2px;">
+
+
+            <form action="/search_room" method="post" class="probootstrap-form">
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="room">Room</label>
+                            <div class="form-field">
+                                <i class="icon icon-chevron-down"></i>
+                                <select name="room" id="room" class="form-control">
+                                    <option value="0">Select a Room</option>
+                                    <option value="1">STANDARD</option>
+                                    <option value="2">DELUXE</option>
+                                    <option value="3">PREMIUM</option>
+                                    <option value="4">SUITE</option>
+                                    <option value="5">EXECUTIVE_SUITE</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <div class="form-field">
-                            <i class="icon icon-mail"></i>
-                            <input type="email" class="form-control" id="email" name="email">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="room">Room</label>
-                        <div class="form-field">
-                            <i class="icon icon-chevron-down"></i>
-                            <select name="room" id="room" class="form-control">
-                                <option value="">Select a Room</option>
-                                <option value="1">Classic Room</option>
-                                <option value="2">Ultra Superior Room</option>
-                                <option value="3">Grand Deluxe Room</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="date-arrival">Arrival</label>
-                                <div class="form-field">
-                                    <i class="icon icon-calendar2"></i>
-                                    <input type="text" class="form-control" id="date-arrival" name="date-arrival">
-                                </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="date-arrival">체크인</label>
+                            <div class="form-field">
+                                <i class="icon icon-calendar2"></i>
+                                <input type="text" class="form-control" id="date-arrival" name="datearr">
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="date-departure">Departure</label>
-                                <div class="form-field">
-                                    <i class="icon icon-calendar2"></i>
-                                    <input type="text" class="form-control" id="date-departure" name="date-departure">
-                                </div>
-                            </div>
+                    </div>
+                    <!-- 몇박몇일인지 계산 해주는 값 -->
+
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label for="fname">숙박</label>
+                            <input type="text" class="form-control" id="" name="">
                         </div>
                     </div>
 
-                    <div class="row mb30">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="adults">Adults</label>
-                                <div class="form-field">
-                                    <i class="icon icon-chevron-down"></i>
-                                    <select name="adults" id="adults" class="form-control">
-                                        <option value="">Number of Adults</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4+</option>
-                                    </select>
-                                </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="date-departure">체크아웃</label>
+                            <div class="form-field">
+                                <i class="icon icon-calendar2"></i>
+                                <input type="text" class="form-control" id="date-departure" name="datedpar">
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="children">Children</label>
-                                <div class="form-field">
-                                    <i class="icon icon-chevron-down"></i>
-                                    <select name="children" id="children" class="form-control">
-                                        <option value="">Number of Children</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4+</option>
-                                    </select>
-                                </div>
-
+                    </div>
+                    <div class="col-md-1" style="width: 9%">
+                        <div class="form-group">
+                            <label for="adults">성인</label>
+                            <div class="form-field">
+                                <i class="icon icon-chevron-down"></i>
+                                <select name="adults" id="adults" class="form-control">
+                                    <option value="">1</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4+</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1" style="width: 9%">
+                        <div class="form-group">
+                            <label for="children">어린이</label>
+                            <div class="form-field">
+                                <i class="icon icon-chevron-down"></i>
+                                <select name="children" id="children" class="form-control">
+                                    <option value="">1</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4+</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1" style="width: 9%">
+                        <div class="form-group">
+                            <label for="adults">유아</label>
+                            <div class="form-field">
+                                <i class="icon icon-chevron-down"></i>
+                                <select name="babies" id="babies" class="form-control">
+                                    <option value="">1</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4+</option>
+                                </select>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="btn btn-primary btn-lg" id="submit" name="submit" value="Reserve">
+                        <input style="margin-top: 1.2%; margin-left: 2%" type="submit" class="btn btn-primary btn-lg" id="submit" name="submit" value="Search">
                     </div>
-                </form>
-            </div>
-            <div class="col-md-4">
-                <h2 class="mt0">Feedback</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                <p><a href="#" class="btn btn-primary" role="button">Send Message</a></p>
-            </div>
+                </div>
+            </form>
         </div>
+        <!--        </div>-->
     </div>
 </section>
 

@@ -1,5 +1,19 @@
--- 2~8층 20개, 9층 10개, 10층 5개
--- 방 호수 저장해주는 파일 
+-- 정적 인스턴스 추가 해주는 파일
+
+
+-- 룸 타입 인스턴스를 생성하는 쿼리문
+INSERT INTO room_type VALUES ('STANDARD_TWIN',50000,2,4,22,20,2);
+INSERT INTO room_type VALUES ('STANDARD_DOUBLE',50000,2,4,22,20,2);
+INSERT INTO room_type VALUES ('STANDARD_FAMILY',50000,2,4,22,20,2);
+INSERT INTO room_type VALUES ('DELUXE_TWIN',50000,2,4,22,20,2);
+INSERT INTO room_type VALUES ('DELUXE_DOUBLE',50000,2,4,22,20,2);
+INSERT INTO room_type VALUES ('DELUXE_FAMILY',50000,2,4,22,20,2);
+INSERT INTO room_type VALUES ('PREMIUM_TWIN',50000,2,4,22,20,2);
+INSERT INTO room_type VALUES ('PREMIUM_DOUBLE',50000,2,4,22,20,2);
+INSERT INTO room_type VALUES ('SUITE',70000,2,4,11,10,2);
+INSERT INTO room_type VALUES ('EXECUTIVE_SUITE',100000,2,4,6,5,2);
+
+-- 방 호수 저장해주는 함수 -- 2~8층 20개, 9층 10개, 10층 5개
 DELIMITER $$
 DROP PROCEDURE IF EXISTS InsertRoom$$
 CREATE PROCEDURE InsertRoom()
@@ -67,3 +81,15 @@ END$$
 DELIMITER $$
 
 CALL InsertRoom();
+
+
+-- facility_package 인스턴스 생성하는 쿼리문
+
+INSERT INTO facility_package VALUES(1, 300000, "Private Swimming Pool");
+INSERT INTO facility_package VALUES(2, 500000, "Meeting Room");
+INSERT INTO facility_package VALUES(3, 1000000, "Banquet hall");
+INSERT INTO facility_package VALUES(4, 300000, "Private Bar");
+INSERT INTO facility_package VALUES(5, 200000, "Club Lounge");
+INSERT INTO facility_package VALUES(6, 70000, "Concert");
+INSERT INTO facility_package VALUES(7, 100000, "Business Room");
+INSERT INTO facility_package VALUES(8, 500000, "Party Room");
