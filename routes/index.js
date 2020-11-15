@@ -111,6 +111,7 @@ router.post('/register', function (req, res) {
   var email = req.body.email;
 
   var password = req.body.password;
+  var forget_password = req.body.forget_password;
 
   var gender = req.body.gender;
   var birth = req.body.birth;
@@ -132,8 +133,8 @@ router.post('/register', function (req, res) {
       if (error) {
         console.log(error);
       }
-      var sql3 = 'INSERT INTO customer(PERSON_ID, LOGIN_ID, LOGIN_PW) VALUES(?, ?, ?)';
-      connection.query(sql3, [results.insertId, email, password], function (error, results, fields) {
+      var sql3 = 'INSERT INTO customer(PERSON_ID, PW_ANSWER, LOGIN_ID, LOGIN_PW) VALUES(?, ?, ?, ?)';
+      connection.query(sql3, [results.insertId, forget_password, email, password], function (error, results, fields) {
         if (error) {
           console.log(error);
         }
