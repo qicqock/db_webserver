@@ -75,13 +75,11 @@
 }
 .review-block-name{
 	font-size:25px;
-    margin-left:30%;
     text-align:left;
 }
 .review-block-date{
     font-size:14px;
     text-align: left;
-    margin-left: 30%;
 }
 .review-block-rate{
 	font-size:13px;
@@ -98,59 +96,7 @@
 .review-block-room{
     font-size:14px;
     text-align: left;
-    margin-left: 30%;
 }
-
-
-
-/* form {
-    max-width: 600px;
-    text-align: center;
-    margin: 20px auto;
-}
-   textarea {
-      border:0; outline:0;
-      padding: 1em;
-      display: block;
-      width: 100%;
-      margin-top: 1em;
-      font-family: 'Merriweather', sans-serif;
-      resize: none;
-     
-   } */
-   
-   /* #input-submit {
-      color: white; 
-      background: red;
-      cursor: pointer;
-   }
-   
-   textarea {
-       height: 126px;
-   }
- 
- 
- .half {
-   float: left;
-   width: 48%;
-   margin-bottom: 1em;
- }
- 
- .right { width: 50%; }
- 
- .left {
-      margin-right: 2%; 
- }
- 
- 
- @media (max-width: 480px) {
-   .half {
-      width: 100%; 
-      float: none;
-      margin-bottom: 0; 
-   }
- } */
- 
  
  /* Clearfix */
  .cf:before,

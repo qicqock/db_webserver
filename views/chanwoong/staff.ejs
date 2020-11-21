@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Database - Hotel</title>
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text:300,400,700|Rubik:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/css2/styles-merged.css">
+    <link rel="stylesheet" href="/stylesheets/css2/style.min.css">
+    <link rel="stylesheet" href="/stylesheets/css2/custom.css">
+    <link rel="stylesheet" href="/stylesheets/css2/style.css">
+    <link rel="stylesheet" href="/stylesheets/css2/staff.css">
+
+    <script src="js/staff.js"></script>
+    <script>
+        $( document ).ready(function() {
+            $('.trigger').on('click', function() {
+                $('.modal-wrapper').toggleClass('open');
+                $('.page-wrapper').toggleClass('blur-it');
+                return false;
+            });
+        });
+    </script>
+    <!--[if lt IE 9]>
+    <script src="js/vendor/html5shiv.min.js"></script>
+    <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<% include ./uppermenu_header.ejs %>
+
+<section class="probootstrap-slider flexslider probootstrap-inner">
+    <ul class="slides">
+        <li style="background-image: url(img/slider_1.jpg);" class="overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="probootstrap-slider-text text-center">
+                            <p><img src="img/curve_white.svg" class="seperator probootstrap-animate" alt="Free HTML5 Bootstrap Template"></p>
+                            <h1 class="probootstrap-heading probootstrap-animate">Welcome to our hotel</h1>
+                            <div class="probootstrap-animate probootstrap-sub-wrap">Please enter your email and password <p/> If you become a member of our hotel, you can receive various services and benefits</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</section>
+
+    <div class="container-xl">
+        <div class="table-responsive">
+            <div class="table-wrapper">
+                <div class="table-title">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <h2>Staff List</h2>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-striped table-hover">
+                    <thead style="color: #903479; font-size: 18px;">
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>						
+                            <th>Join Date</th>
+                            <th>Department</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                            <th>dd</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>  <!-- staff_id -->
+                            <td><a href="#">Michael Holz</a></td>   <!-- staff_name -->
+                            <td>04/10/2013</td> <!-- join_date -->              
+                            <td>A</td>
+                            <td>High</td>
+                            <td class="probootstrap-form">
+                                <select class="form-control" id="status" style="font-size: 14px; background:#ffffff">
+                                    <option value="1">대기</option>
+                                    <option value="2">활동중</option>
+                                    <option value="3">자리비움</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input class="modal-btn" type="checkbox" id="modal-btn" name="modal-btn"/>
+                                <label for="modal-btn"> More <i class="uil uil-expand-arrows"></i></label> 
+                                <div class="modal">
+                                    <div class="modal-wrap" style="text-align: center;">
+                                        <h3 style="margin-top: 10px;">staff_name</h3>
+                                        <div>Salary : </div>
+                                        <div>Address : </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><a href="#">Paula Wilson</a></td>
+                            <td>05/08/2014</td>                       
+                            <td>B</td>
+                            <td>Low</td>
+                            <td class="probootstrap-form">
+                                <select class="form-control" id="status" style="font-size: 14px; background:#ffffff">
+                                    <option value="1">대기</option>
+                                    <option value="2">활동중</option>
+                                    <option value="3">자리비움</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input class="modal-btn" type="checkbox" id="modal-btn" name="modal-btn"/>
+                                <label for="modal-btn"> More <i class="uil uil-expand-arrows"></i></label> 
+                                <div class="modal">
+                                    <div class="modal-wrap" style="text-align: center;">
+                                        <h3 style="margin-top: 10px;">staff_name</h3>
+                                        <div>Salary : </div>
+                                        <div>Address : </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- <div class="clearfix">
+                    <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+                    <ul class="pagination">
+                        <li class="page-item disabled"><a href="#">Previous</a></li>
+                        <li class="page-item"><a href="#" class="page-link">1</a></li>
+                        <li class="page-item"><a href="#" class="page-link">2</a></li>
+                        <li class="page-item active"><a href="#" class="page-link">3</a></li>
+                        <li class="page-item"><a href="#" class="page-link">4</a></li>
+                        <li class="page-item"><a href="#" class="page-link">5</a></li>
+                        <li class="page-item"><a href="#" class="page-link">Next</a></li>
+                    </ul>
+                </div> -->
+            </div>
+        </div>
+    </div>     
+
+<section class="probootstrap-half">
+    <div class="image" style="background-image: url(img/slider_2.jpg);"></div>
+    <div class="text">
+        <div class="probootstrap-animate fadeInUp probootstrap-animated">
+            <h2 class="mt0">Best 5 Star hotel</h2>
+            <p><img src="img/curve_white.svg" class="seperator" alt="Free HTML5 Bootstrap Template"></p>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                </div>
+                <div class="col-md-6">
+                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                </div>
+            </div>
+            <p><a href="#" class="link-with-icon white">Learn More <i class=" icon-chevron-right"></i></a></p>
+        </div>
+    </div>
+</section>
+
+<% include ./footer.ejs %>
+
+<script src="js/scripts.min.js"></script>
+<script src="js/main.min.js"></script>
+<script src="js/custom.js"></script>
+
+</body>
+</html>
