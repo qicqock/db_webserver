@@ -39,7 +39,7 @@
                     <div class="col-md-10 col-md-offset-1">
                         <div class="probootstrap-slider-text text-center">
                             <p><img src="img/curve_white.svg" class="seperator probootstrap-animate" alt="Free HTML5 Bootstrap Template"></p>
-                            <h1 class="probootstrap-heading probootstrap-animate">Welcome to our hotel</h1>
+                            <h1 class="probootstrap-heading probootstrap-animate">Staff List</h1>
                             <div class="probootstrap-animate probootstrap-sub-wrap">Please enter your email and password <p/> If you become a member of our hotel, you can receive various services and benefits</div>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
     </ul>
 </section>
 
-    <div class="container-xl">
+    <div class="container-fluid">
         <div class="table-responsive">
             <div class="table-wrapper">
                 <div class="table-title">
@@ -72,17 +72,19 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <% if (staff_list != null) { %>
+                        <% for (var q of staff_list)  { %>
                         <tr>
-                            <td>1</td>  <!-- staff_id -->
-                            <td><a href="#">Michael Holz</a></td>   <!-- staff_name -->
-                            <td>04/10/2013</td> <!-- join_date -->              
-                            <td>A</td>
-                            <td>High</td>
+                            <td><%=q.EMPLOYEE_ID%></td>  <!-- staff_id -->
+                            <td><strong><%=q.ENG_FIRST_NAME + " " + q.ENG_LAST_NAME%></strong></td>   <!-- staff_name -->
+                            <td><%=q.JOIN_DATE%></td> <!-- join_date -->
+                            <td><%=q.DEPARTMENT_ID%></td>
+                            <td><%=q.RANK%></td>
                             <td class="probootstrap-form">
                                 <select class="form-control" id="status" style="font-size: 14px; background:#ffffff">
-                                    <option value="1">대기</option>
-                                    <option value="2">활동중</option>
-                                    <option value="3">자리비움</option>
+                                    <option value="1" <% if (q.EP_STATE == 1) { %> selected <% } %>>대기</option>
+                                    <option value="2" <% if (q.EP_STATE == 2) { %> selected <% } %>>활동중</option>
+                                    <option value="3" <% if (q.EP_STATE == 3) { %> selected <% } %>>자리비움</option>
                                 </select>
                             </td>
                             <td>
@@ -90,39 +92,17 @@
                                 <label for="modal-btn"> More <i class="uil uil-expand-arrows"></i></label> 
                                 <div class="modal">
                                     <div class="modal-wrap" style="text-align: center;">
-                                        <h3 style="margin-top: 10px;">staff_name</h3>
-                                        <div>Salary : </div>
-                                        <div>Address : </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td><a href="#">Paula Wilson</a></td>
-                            <td>05/08/2014</td>                       
-                            <td>B</td>
-                            <td>Low</td>
-                            <td class="probootstrap-form">
-                                <select class="form-control" id="status" style="font-size: 14px; background:#ffffff">
-                                    <option value="1">대기</option>
-                                    <option value="2">활동중</option>
-                                    <option value="3">자리비움</option>
-                                </select>
-                            </td>
-                            <td>
-                                <input class="modal-btn" type="checkbox" id="modal-btn" name="modal-btn"/>
-                                <label for="modal-btn"> More <i class="uil uil-expand-arrows"></i></label> 
-                                <div class="modal">
-                                    <div class="modal-wrap" style="text-align: center;">
-                                        <h3 style="margin-top: 10px;">staff_name</h3>
-                                        <div>Salary : </div>
-                                        <div>Address : </div>
+                                        <h3 style="margin-top: 10px;"><%=q.ENG_FIRST_NAME + " " + q.ENG_LAST_NAME%></h3>
+                                        <div>Salary : <%=q.SALARY%></div>
+                                        <div>Address : <%=q.ADDRESS%></div>
+                                        <div>Login ID : <%=q.LOGIN_ID%></div>
+                                        <div>Login PW : <%=q.LOGIN_PW%></div>
                                     </div>
                                 </div>
                             </td>
                         </tr>
                     </tbody>
+                    <% } }%>
                 </table>
                 <!-- <div class="clearfix">
                     <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
