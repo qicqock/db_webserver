@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Database - Hotel</title>
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text:300,400,700|Rubik:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/css2/styles-merged.css">
+    <link rel="stylesheet" href="/stylesheets/css2/style.min.css">
+    <link rel="stylesheet" href="/stylesheets/css2/custom.css">
+    <link rel="stylesheet" href="/stylesheets/css2/review_css/review.css">
+    <!--[if lt IE 9]>
+    <script src="js/vendor/html5shiv.min.js"></script>
+    <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<% include ./uppermenu_header.ejs %>
+
+<section class="probootstrap-slider flexslider probootstrap-inner">
+    <ul class="slides">
+        <li style="background-image: url(img/slider_1.jpg);" class="overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="probootstrap-slider-text text-center">
+                            <p><img src="img/curve_white.svg" class="seperator probootstrap-animate" alt="Free HTML5 Bootstrap Template"></p>
+                            <h1 class="probootstrap-heading probootstrap-animate">Complain</h1>
+                            <div class="probootstrap-animate probootstrap-sub-wrap">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</section>
+
+<section class="probootstrap-section" style="padding-bottom: 2em;">
+    <div class="container">
+        <div class="row probootstrap-gutter40">
+            <div class="col-md-8">
+                <h1 class="probootstrap-heading probootstrap-animate">Complain</h1>
+                <form id=complain_socket class="probootstrap-form">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="Room_num">방 번호</label>
+                                <input type="text" class="form-control" id="roomnum" name="Room_num" style="border:0px; border-bottom: 1px solid;">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="complain_type">민원 타입</label>
+                                    <div class="form-field">
+                                        <i class="icon icon-mail"></i>
+                                        <select id="complain_type" name="complain_type" class="form-control" style="border:0px; border-bottom: 1px solid;">
+                                            <option value=''>Complain Type</option>
+                                            <option value='AMENITY'>Amenity</option>
+                                            <option value='COMPLAIN'>Complain</option>
+                                            <option value='PRIMARY'>Primary</option>
+                                        </select>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="priority">우선순위</label>
+                                <div class="form-field">
+                                    <i class="icon icon-mail"></i>
+                                    <select id="priorityx" name="priorityx" class="form-control" style="border:0px; border-bottom: 1px solid;">
+                                        <option value="0">Priority</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group" style="padding-left: 10%; padding-top: 13%;">
+                                <input type="submit" class="btn btn-primary btn-lg" id="submit" name="submit" value="submit" style="border-radius: 10px;">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="content">내용</label>
+                                <div class="form-field">
+                                    <textarea placeholder="불만사항을 적어주세요" rows="7" class="form-control" id="contentx" name="contentx" style="border:0px; border-bottom: 1px solid;"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4 text-center">
+                <br><br><br><br>
+                <h2 class="mt0">Allocate</h2>
+                <p>배정할 직원을 선택해주세요.</p>
+                <p><a href="#" class="btn btn-primary" role="button" style="border-radius: 15px;">직원 배정</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="complain_list">
+    <div id="list_place" class="container">
+        <h1 class="probootstrap-heading probootstrap-animate">Complain List</h1>
+        <% if (complain != null) { %>
+            <% for (var q of complain)  { %>
+            <hr style="border: solid 0.5px">
+            <div class="row">
+                <div class="probootstrap-gutter40">
+                    <div class="col-sm-3" style="border-radius: 20px; padding: 3% 2%; background-color:
+                    <% if (q.FIN_TIME != null) { %>
+                            mediumspringgreen
+                            <% } else { %>
+                                pink
+                            <% } %>
+                            ;">
+
+                        <div class="review-block-name"><a href="#"><strong>객실 번호 : <%=q.ROOM_NUM%></strong></a></div>
+                        <div class="review-block-room"><strong>직원 ID : <%=q.EMPLOYEE_ID%></strong></div>
+                        <div class="review-block-room"><strong>담당 직원 : <%=q.ENG_LAST_NAME +" "+ q.ENG_FIRST_NAME%></strong></div>
+                        <div class="review-block-room"><strong>우선 순위 : <%=q.PRIORITY%></strong></div>
+                        <div class="rating-selected" style="margin-left: 30%;">
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <div class="review-block-title"><p>타입 : <%=q.TYPE%></p></div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group text-right" style="margin-top: 10%;">
+                                    <% if (q.FIN_TIME == null) { %> <input  type="submit" class="btn btn-primary btn-md" id="submit" name="submit" value="민원 해결"> <% }else { %><strong style="color: #903479; font-size: 2rem;">처리완료</strong> <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-block-description"><%=q.DESCRIPTION%></div>
+                        <div class="review-block-description text-right" style="font-size: 14px;"><p>발생 시간 : <%=q.START_TIME%></p></div>
+                        <div class="review-block-description text-right" style="font-size: 14px;"><p>종료 시간 : <%=q.FIN_TIME%></p></div>
+                    </div>
+                </div>
+            </div>
+            <hr/>
+        <% } } %>
+    </div>
+</section>
+
+<section class="probootstrap-half">
+    <div class="image" style="background-image: url(img/slider_2.jpg);"></div>
+    <div class="text">
+        <div class="probootstrap-animate fadeInUp probootstrap-animated">
+            <h2 class="mt0">Best 5 Star hotel</h2>
+            <p><img src="img/curve_white.svg" class="seperator" alt="Free HTML5 Bootstrap Template"></p>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                </div>
+                <div class="col-md-6">
+                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                </div>
+            </div>
+            <p><a href="#" class="link-with-icon white">Learn More <i class=" icon-chevron-right"></i></a></p>
+        </div>
+    </div>
+</section>
+
+<% include ./footer.ejs %>
+
+<script src="js/scripts.min.js"></script>
+<script src="js/main.min.js"></script>
+<script src="js/custom.js"></script>
+<script src = "/socket.io/socket.io.js"></script>
+<script src = '/js/socket/complain_client.js'></script>
+
+</body>
+</html>

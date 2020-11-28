@@ -22,6 +22,13 @@ router.post('/', function (req, res) {
     var child_num = Number(req.body.children);
     var baby_num = Number(req.body.babies);
     var people = adult_num + child_num + baby_num;
+
+    res.cookie('checkin_date',date_arrival);
+    res.cookie('checkout_date',date_departure);
+    res.cookie('adult_num',adult_num);
+    res.cookie('child_num',child_num);
+    res.cookie('baby_num',baby_num);
+    
     var a="",b="",c="";
     var step =1;
     for(var i=0;i<date_arrival.length;i++){
@@ -33,7 +40,7 @@ router.post('/', function (req, res) {
       else{
         step++;
       }
-    }var date_arr=c+"-"+a+"-"+b+" 00:00:00";
+    }var date_arr=c+"-"+b+"-"+a+" 00:00:00";
     a="";b="";c="";step =1;
     for(var i=0;i<date_departure.length;i++){
       if(date_departure[i] != '/'){
@@ -44,7 +51,7 @@ router.post('/', function (req, res) {
       else{
         step++;
       }
-    }var date_dpa=c+"-"+a+"-"+b+" 00:00:00";
+    }var date_dpa=c+"-"+b+"-"+a+" 00:00:00";
   
     var avail_types;
     input_info = {"ROOMTYPE" : room,"DATE_ARR" : date_arr,"DATE_DPAR" : date_dpa,"N_A" : adult_num,"N_C" : child_num,"N_B" : baby_num};
@@ -140,4 +147,5 @@ router.post('/', function (req, res) {
     });
 });
   
+
 module.exports = router;
