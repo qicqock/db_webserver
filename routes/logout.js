@@ -6,8 +6,6 @@ var connection = require('./db');
 router.get('/', function (req, res) {
         res.clearCookie('customer_id');
         res.clearCookie('customer_name');
-        res.clearCookie('employee_id');
-        res.clearCookie('employee_name');
         res.redirect('/');
 });
 

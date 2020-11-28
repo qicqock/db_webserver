@@ -42,109 +42,73 @@
         <div class="row probootstrap-gutter40">
             <h2 class="mt0" style="color:#6b265a;">Booking Form</h2>
             <hr class="underhr" >
-            
-            <form action="/booking" method="post" class="probootstrap-form">
-
+            <form action="#" method="post" class="probootstrap-form">
                 <label><h3>Customer Information</h3></label>
                 <div class="row">
                     <div class="col-sm-6 form-group">
                         <label>Korean First Name</label>
-                        <% if(cust_info == null) { %>
-                            <input type="text" name = "korean_first" placeholder="Enter First Name Here.." class="form-control">
-                        <% } else { %>
-                            <p class="form-control"><%=cust_info.KOR_FIRST_NAME%></p>
-                        <% } %>
-                        
+                        <input type="text" name = "korean_first" placeholder="Enter First Name Here.." class="form-control">
                     </div>
                     <div class="col-sm-6 form-group">
                         <label>Korean Last Name</label>
-                        <% if(cust_info == null) { %>
-                            <input type="text" name="korean_last" placeholder="Enter Last Name Here.." class="form-control">
-                        <% } else { %>
-                            <p class="form-control"><%=cust_info.KOR_LAST_NAME%></p>
-                        <% } %>
-                        
-
+                        <input type="text" name="korean_last" placeholder="Enter Last Name Here.." class="form-control">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-6 form-group">
                         <label>English First Name</label>
-                        <% if(cust_info == null) { %>
-                            <input type="text" name="english_first" placeholder="Enter First Name Here.." class="form-control">
-                        <% } else { %>
-                            <p class="form-control"><%=cust_info.ENG_FIRST_NAME%></p>
-                        <% } %>
-                        
+                        <input type="text" name="english_first" placeholder="Enter First Name Here.." class="form-control">
                     </div>
                     <div class="col-sm-6 form-group">
                         <label>English Last Name</label>
-                        <% if(cust_info == null) { %>
-                            <input type="text" name="english_last" placeholder="Enter Last Name Here.." class="form-control">
-                        <% } else { %>
-                            <p class="form-control"><%=cust_info.ENG_LAST_NAME%></p>
-                        <% } %>
-                        
+                        <input type="text" name="english_last" placeholder="Enter Last Name Here.." class="form-control">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-6 form-group">
-                        <label for="email">Email</label>
-                        <% if(cust_info == null) { %>
-                            <input type="email" name="email" placeholder="Enter Email Here.." class="form-control" id="email" name="email">
-                        <% } else { %>
-                            <p class="form-control"><%=cust_info.EMAIL%></p>
-                        <% } %>
-                    </div>
-                    <div class="col-sm-6 form-group">
-                        <label for="email">Gender</label>
-                        <% if(cust_info == null) { %>
-                            <label>Gender</label>
-                            <select name="gender" class="form-control">
-                                <option value="0" selected>Male</option>
-                                <option value="1">Female</option>
-                            </select>
-                        <% } else { %>
-                            <p class="form-control"><%=cust_info.GENDER%></p>
-                        <% } %>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="form-field">
+                        <i class="icon icon-mail"></i>
+                        <input type="email" name="email" placeholder="Enter Email Here.." class="form-control" id="email" name="email">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-6 form-group">
-                        <label>Phone Number</label>
-                    <% if(cust_info == null) { %>
-                        <input type="text" name="phone_num" placeholder="Enter Phone Number Here.." class="form-control">
-                    <% } else { %>
-                        <p class="form-control"><%=cust_info.PHONE_NUM%></p>
-                    <% } %>
-                    </div>
-                    <div class="col-sm-6 form-group">
-                        <label>Birth</label>
-                    <% if(cust_info == null) { %>
-                        <input type="date" name="birth" class="form-control">
-                    <% } else { %>
-                        <p class="form-control"><%=cust_info.BIRTH%></p>
-                    <% } %>
-                    </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="text" name="phone_num" placeholder="Enter Phone Number Here.." class="form-control">
                 </div>
 
                 <div class="row">
                     <!-- 룸 타입의 경우 전 페이지에서 값을 받아와서 고정시킨다. -->
                     <div class="col-sm-6 form-group">
                         <label>Room Type</label>
-                        <!-- 예약정보와 방정보 넘겨주기 -->
-                        <!-- <input type="hidden" name="reserv_info" value="<%=reserv_info%>"> -->
-                        <input type="hidden" name="room_type" value="<%=room_info.ROOM_TYPE%>">
-                        <input type="hidden" name="room_price" value="<%=room_info.PRICE%>">
-                        <p class="form-control"><%=room_info.ROOM_TYPE%></p>
-
+                        <div class="form-field">
+                            <i class="icon icon-chevron-down"></i>
+                            <select name="room" id="room" class="form-control">
+                                <option value="">Room Type</option>
+                                <option value="1">STANDARD_TWIN</option>
+                                <option value="2">STANDARD_DOUBLE</option>
+                                <option value="3">STANDARD_FAMILY</option>
+                                <option value="4">DELUXE_TWIN</option>
+                                <option value="5">DELUXE_DOUBLE</option>
+                                <option value="6">DELUXE_FAMILY</option>
+                                <option value="7">PREMIUM_TWIN</option>
+                                <option value="8">PREMIUM_DOUBLE</option>
+                                <option value="9">SUITE</option>
+                                <option value="10">EXECUTIVE_SUITE</option>
+                            </select>
+                        </div>
                     </div>
                     <!-- 고정시킨 룸타입을 토대로 기본 성인 인원을 고정시킨다.-->
                     <div class="col-sm-6 form-group">
                         <label for="adults">The Default Capacity</label>
                         <div class="form-field">
-                            <p class="form-control"><%=room_info.CAPACITY_DEFAULT%></p>
-
+                            <i class="icon icon-chevron-down"></i>
+                            <select name="adults" id="adults" class="form-control">
+                                <option value="">The Default Number of People</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -158,30 +122,21 @@
                             <i class="icon icon-chevron-down"></i>
                             <select name="cardtype" id="cardtype" class="form-control">
                                 <option value="">Select Credit Card Type</option>
-                                <option value="AMEX CARD">AMEX CARD</option>
-                                <option value="BC CARD">BC CARD</option>
-                                <option value="CITIBANK CARD">CITIBANK CARD</option>
-                                <option value="DINERS CARD">DINERS CARD</option>
-                                <option value="HYUNDAI CARD">HYUNDAI CARD</option>
-                                <option value="JCB CARD">JCB CARD</option>
-                                <option value="KEB CARD">KEB CARD</option>
-                                <option value="KOOKMIN CARD">KOOKMIN CARD</option>
-                                <option value="LOTTE CARD">LOTTE CARD</option>
-                                <option value="MASTER OVERSEAS">MASTER OVERSEAS</option>
-                                <option value="SHINHAN CARD">SHINHAN CARD</option>
-                                <option value="SAMSUNG CARD">SAMSUNG CARD</option>
-                                <option value="VISA OVERSEAS">VISA OVERSEAS</option>
-                                <option value="UNION PAY">UNION PAY</option>
+                                <option value="1">AMEX CARD</option>
+                                <option value="2">BC CARD</option>
+                                <option value="3">CITIBANK CARD</option>
+                                <option value="4">DINERS CARD</option>
+                                <option value="5">HYUNDAI CARD</option>
+                                <option value="6">JCB CARD</option>
+                                <option value="7">KEB CARD</option>
+                                <option value="8">KOOKMIN CARD</option>
+                                <option value="9">LOTTE CARD</option>
+                                <option value="10">MASTER OVERSEAS</option>
+                                <option value="11">SHINHAN CARD</option>
+                                <option value="12">SAMSUNG CARD</option>
+                                <option value="13">VISA OVERSEAS</option>
+                                <option value="14">UNION PAY</option>
                             </select>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-2 form-group">
-                            <label>Card CVC</label>
-                            <div class="form-field">
-                                <input name = "cvc" type="text" class="form-control">
-                            </div>
-
                         </div>
                     </div>
                     <div class="col-sm-3 form-group">
@@ -256,38 +211,54 @@
                 <div class="row">
                     <!-- 추가 인원들 -->
                     <div class="col-sm-6 form-group">
-                        <label for="adults">Additional Adults/$<%=(room_info.PRICE/5)%></label>
+                        <label for="adults">Additional Adults/$5000</label>
                         <div class="form-field">
-                            <% var adult_alp = reserv_info[2] - room_info.CAPACITY_DEFAULT %>
-                            <% if(adult_alp  <= 0) { %>
-                                <% adult_alp = 0 %>
-                                <p class="form-control">0</p>
-                            <% } else { %>
-                                <p class="form-control"><%=adult_alp%></p>
-                            <% } %>
-                            <input type="hidden" name="adult_alp" value="<%=adult_alp %>">
+                            <i class="icon icon-chevron-down"></i>
+                            <select name="adults" id="adults" class="form-control">
+                                <option value="">Number of Adults</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-sm-6 form-group">
-                        <label for="children">Additional Children/$<%=(room_info.PRICE/10)%></label>
+                        <label for="children">Additional Children/$2500</label>
                         <div class="form-field">
-                            <% var child_alp = reserv_info[2] + reserv_info[3] - room_info.CAPACITY_DEFAULT - adult_alp %>
-                            <% if(child_alp  <= 0) { %>
-                                <% child_alp = 0 %>
-                                <p class="form-control">0</p>
-                            <% } else { %>
-                                <p class="form-control"><%=child_alp%></p>
-                            <% } %>
-                            <input type="hidden" name="child_alp" value="<%=child_alp%>">
+                            <i class="icon icon-chevron-down"></i>
+                            <select name="children" id="children" class="form-control">
+                                <option value="">Number of Children</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <!-- 조식 티켓 -->
                     <div class="col-sm-6 form-group">
-                        <label>Breakfast/$2500</label>
+                        <label>Adults Breakfast/$2500</label>
                         <div class="form-field">
-                            <input type="number" name="breakfast" value="0" min="0">
+                            <i class="icon icon-chevron-down"></i>
+                            <select name="adults" id="adults" class="form-control">
+                                <option value="">Number of Adults Breakfast</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <label>Children Breakfast/$1250</label>
+                        <div class="form-field">
+                            <i class="icon icon-chevron-down"></i>
+                            <select name="children" id="children" class="form-control">
+                                <option value="">Number of Children Breakfast</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
                         </div>
                     </div>
                 </div>

@@ -143,39 +143,34 @@
             <div class="row">
                 <% if (avail_roomtype != null) { %>
                 <% for (var q of avail_roomtype)  { %>
-                <form action="/booking" method="GET">
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="probootstrap-room">
-                            <a href="#"><img src=<% if(q.ROOM_TYPE.substring(0,5) == 'STAND'){ %>
-                                "img/standard.jpg"
-                            <%} else if(q.ROOM_TYPE.substring(0,5) == 'DELUX'){%>
-                                "img/deluxe.jpg"
-                            <%} else if(q.ROOM_TYPE.substring(0,5) == 'PREMI'){%>
-                                "img/premium.jpg"
-                            <%} else if(q.ROOM_TYPE.substring(0,5) == 'SUITE'){%>
-                                "img/suite.jpg"
-                            <%} else {%>
-                                "img/ex_suite.jpg"
-                            <%} %> class="img-responsive"></a>
-                            <div class="text">
-                                <h3><%= q.ROOM_TYPE %></h3>
-                                <p>Starting from <strong><%= q.PRICE %>원/Night</strong></p>
-                                <div class="post-meta mb30">
-                                    <ul style="font-size: 1rem">
-                                        <li><i class="icon-user2"></i> 기본수용인원 : <%= q.CAPACITY_DEFAULT %> </li>
-                                        <li><i class="icon-user2"></i> 최대수용인원 : <%= q.CAPACITY_MAX %></li>
-                                    </ul>
-                                </div>
-                                <input type="hidden" name="room_type" value="<%= q.ROOM_TYPE %>"> 
-                                <!-- <a href="/booking" class="btn btn-primary" name = "room_type" value = "<% q.ROOM_TYPE %>" role="button" onclick = "location.href='booking'" style="width: 40%">예약하기</a> -->
-                                <p class="text-center">
-                                    <button class="btn btn-primary" type="submit" style="width: 40%">예약하기</button>
-                                </p>
-                            </div> 
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="probootstrap-room">
+                        <a href="#"><img src=<% if(q.ROOM_TYPE.substring(0,5) == 'STAND'){ %>
+                            "img/standard.jpg"
+                        <%} else if(q.ROOM_TYPE.substring(0,5) == 'DELUX'){%>
+                            "img/deluxe.jpg"
+                        <%} else if(q.ROOM_TYPE.substring(0,5) == 'PREMI'){%>
+                            "img/premium.jpg"
+                        <%} else if(q.ROOM_TYPE.substring(0,5) == 'SUITE'){%>
+                            "img/suite.jpg"
+                        <%} else {%>
+                            "img/ex_suite.jpg"
+                        <%} %> class="img-responsive"></a>
+
+
+                        <div class="text">
+                            <h3><%= q.ROOM_TYPE %></h3>
+                            <p>Starting from <strong><%= q.PRICE %>원/Night</strong></p>
+                            <div class="post-meta mb30">
+                                <ul style="font-size: 1rem">
+                                    <li><i class="icon-user2"></i> 기본수용인원 : <%= q.CAPACITY_DEFAULT %> </li>
+                                    <li><i class="icon-user2"></i> 최대수용인원 : <%= q.CAPACITY_MAX %></li>
+                                </ul>
+                            </div>
+                            <p class="text-center"><a href="#" class="btn btn-primary" role="button" onclick = "location.href='booking'" style="width: 40%">예약하기</a></p>
                         </div>
                     </div>
-                </form>
-                
+                </div>
                     <% } }else { %>
                     <p></p>
                 <% }%>
